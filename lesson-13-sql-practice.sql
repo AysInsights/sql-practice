@@ -1,7 +1,6 @@
 -- Dərs 13 | SQL Praktikaları
 -- Oracle HR sxemi | hr.employees
 -- Praktika 1 və Praktika 2
--- Tapşırıqlar dərsdəki ardıcıllıqla verilmişdir.
 
 
 -- =====================================================
