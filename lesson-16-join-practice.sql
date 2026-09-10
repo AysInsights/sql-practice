@@ -173,12 +173,12 @@ ORDER BY isci_sayi DESC;
 --Analitik sual 1-Hər şəhərdə neçə işçi işləyir? (3 cədvəl + GROUP BY)-------------------------------------------
 
 select city, count(EMPLOYEE_ID) isci_sayi
-    from hr.EMPLOYEES e
-    join hr.DEPARTMENTS d
-        on e.DEPARTMENT_ID = d.DEPARTMENT_ID
-            join hr.locations l
-                on d.location_id = l.location_id
-                    group by city
+    from hr.locations l
+    left join hr.DEPARTMENTS d
+        on l.location_id = d.location_id
+           left join hr.EMPLOYEES e
+                on e.DEPARTMENT_ID = d.DEPARTMENT_ID
+                    group by city order by isci_sayi desc
 
 -------------------------------------------------------------
 
@@ -186,7 +186,7 @@ select city, count(EMPLOYEE_ID) isci_sayi
 
 select department_name, sum(salary) umumi_maas
     from hr.EMPLOYEES e
-    join hr.DEPARTMENTS d
+    left join hr.DEPARTMENTS d
         on e.DEPARTMENT_ID = d.DEPARTMENT_ID
             group by department_name
                 order by umumi_maas desc
