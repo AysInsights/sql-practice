@@ -1,5 +1,5 @@
 -- ============================================================
--- PRAKTİKA 16 – RIGHT / FULL OUTER JOIN, ANTI-JOIN, SELF JOIN
+-- PRAKTİKA 17 – RIGHT / FULL OUTER JOIN, ANTI-JOIN, SELF JOIN
 -- Oracle HR Schema / FreeSQL
 -- ============================================================
 -- Müəllimin tapşırıqları və həllər
@@ -159,8 +159,7 @@ SELECT m.first_name || ' ' || m.last_name AS Rehberin_adi,
 FROM hr.employees e
 JOIN hr.employees m
     ON e.manager_id = m.employee_id
-GROUP BY m.manager_id,
-         m.first_name || ' ' || m.last_name
+GROUP BY m.first_name || ' ' || m.last_name
 ORDER BY Isci_sayi DESC;
 
 
