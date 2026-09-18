@@ -244,3 +244,58 @@ FROM hr.employees;
 -- =========================================================
 -- Tapşırıq 18-də MAX(LENGTH(last_name))
 -- ən uzun soyadın neçə simvoldan ibarət olduğunu göstərir.
+
+
+
+-- =========================================================
+-- Tapşırıq 19
+-- Hər işçinin iş stajını il ilə hesablayın (MONTHS_BETWEEN).
+-- =========================================================
+
+select EMPLOYEES.FIRST_NAME, last_name, round(months_between(trunc(sysdate), HIRE_DATE)/12,2) as staj 
+from hr.EMPLOYEES
+
+
+-- =========================================================
+-- Tapşırıq 20
+-- hire_date-i 'DD.MM.YYYY' formatında göstərin (TO_CHAR).
+-- =========================================================
+
+select to_char(EMPLOYEES.HIRE_DATe, 'DD.MM.YYYY') 
+from hr.EMPLOYEES
+
+
+-- =========================================================
+-- Tapşırıq 21
+-- Işə qəbul ayının son gününü tapın (LAST_DAY).
+-- =========================================================
+
+select to_char(last_day(EMPLOYEES.HIRE_DATE), 'DD.MM.YYYY') son_gun
+from hr.EMPLOYEES
+
+
+-- =========================================================
+-- Tapşırıq 22
+-- 6 ay sonrakı qiymətləndirmə tarixini hesablayın (ADD_MONTHS).
+-- =========================================================
+
+select to_char(add_months(HIRE_DATE, 6), 'DD.MM.YYYY') qiymetlendirme_tarixi
+from hr.EMPLOYEES
+
+
+-- =========================================================
+-- Tapşırıq 23
+-- Maaşı minliyə yuvarlaqlaşdırın (ROUND(salary,-3)).
+-- =========================================================
+
+select round(salary, -3) Maas
+from hr.EMPLOYEES
+
+
+-- =========================================================
+-- Tapşırıq 24
+-- Maaşı '999,999' formatında mətnə çevirin (TO_CHAR).
+-- =========================================================
+
+select to_char(salary, '999,999') Maas
+from hr.EMPLOYEES
